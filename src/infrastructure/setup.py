@@ -13,6 +13,7 @@ import boto3
 
 from s3.mailbox import create_mailbox
 from ses.identities import configure_identities
+from sqs.inbound import create_inbound
 
 if __name__ == '__main__':
     dotenv.load_dotenv()
@@ -27,3 +28,5 @@ if __name__ == '__main__':
 
     mailbox = create_mailbox(region, environment, rootDomain)
     domain = configure_identities(region, environment, rootDomain)
+
+    inboundMail = create_inbound(region, domain)
