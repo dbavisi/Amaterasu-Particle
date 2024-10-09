@@ -14,7 +14,7 @@ def create_mailbox(region: str, environment: str, rootDomain: str) -> str:
     """
     Configures AWS S3 bucket for storing mailboxes.
 
-    :param region: Bucket region (e.g. us-east-1).
+    :param region: AWS region (e.g. us-east-1).
     :param environment: Target deployment environment (e.g. delta, horizon, void).
     :param rootDomain: Root domain for the mailbox (e.g. dbavisi.net).
 

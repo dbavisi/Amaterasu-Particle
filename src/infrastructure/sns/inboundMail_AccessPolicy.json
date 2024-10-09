@@ -1,0 +1,22 @@
+{
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowSESPublish",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "ses.amazonaws.com"
+            },
+            "Action": "SNS:Publish",
+            "Resource": "%(inboundMailArn)s",
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceAccount": "%(AWS_acc_id)s"
+                },
+                "StringLike": {
+                    "AWS:SourceArn": "arn:aws:ses:%(region)s:%(AWS_acc_id)s:*"
+                }
+            }
+        }
+    ]
+}
