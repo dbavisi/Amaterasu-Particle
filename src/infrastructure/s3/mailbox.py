@@ -2,7 +2,7 @@
 # Dwij Bavisi <dwij@dbavisi.net>
 
 """
-Release 0, Hotfix Pack 0, Hotfix 1
+Release 0, Hotfix Pack 0, Hotfix 2
 
 This module performs the configuration for AWS Simple Storage Service (S3) for storing mailboxes.
 """
