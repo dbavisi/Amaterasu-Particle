@@ -25,5 +25,5 @@ if __name__ == '__main__':
     environment = os.getenv('AWS_environment', 'delta')
     rootDomain = os.getenv('AWS_rootDomain', 'dbavisi.net')
 
-    bucket = create_mailbox(region, environment, rootDomain)
+    mailbox = create_mailbox(region, environment, rootDomain)
     domain = configure_identities(region, environment, rootDomain)
