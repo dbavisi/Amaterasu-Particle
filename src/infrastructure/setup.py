@@ -2,7 +2,7 @@
 # Dwij Bavisi <dwij@dbavisi.net>
 
 """
-Release 0, Hotfix Pack 0, Hotfix 1
+Release 0, Hotfix Pack 0, Hotfix 2
 
 This module serves as the entry point for setting up the infrastructure for the project.
 """
@@ -13,6 +13,7 @@ import boto3
 
 from s3.mailbox import create_mailbox
 from ses.identities import configure_identities
+from sns.inboundMail import create_inboundMail
 
 if __name__ == '__main__':
     dotenv.load_dotenv()
@@ -25,5 +26,7 @@ if __name__ == '__main__':
     environment = os.getenv('AWS_environment', 'delta')
     rootDomain = os.getenv('AWS_rootDomain', 'dbavisi.net')
 
-    bucket = create_mailbox(region, environment, rootDomain)
+    mailbox = create_mailbox(region, environment, rootDomain)
     domain = configure_identities(region, environment, rootDomain)
+
+    inboundMail = create_inboundMail(region, domain)
